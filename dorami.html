@@ -1,0 +1,675 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DORAMI MULTI VENTURES - Your One-Stop Shop</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* Custom CSS for enhancements */
+        .product-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+        }
+        .category-btn.active {
+            background-color: #4f46e5;
+            color: white;
+        }
+        .product-image {
+            transition: transform 0.3s ease;
+        }
+        .product-image:hover {
+            transform: scale(1.05);
+        }
+        .whatsapp-btn:hover {
+            background-color: #25D366;
+            color: white;
+        }
+        .call-btn:hover {
+            background-color: #4f46e5;
+            color: white;
+        }
+        .email-btn:hover {
+            background-color: #d946ef;
+            color: white;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .animate-fadeIn {
+            animation: fadeIn 0.5s ease-out forwards;
+        }
+    </style>
+</head>
+<body class="bg-gray-50 font-sans">
+    <!-- Header/Navbar -->
+    <header class="bg-indigo-900 text-white sticky top-0 z-50 shadow-lg">
+        <div class="container mx-auto px-4 py-3 flex justify-between items-center">
+            <div class="flex items-center space-x-2">
+                <i class="fas fa-store text-2xl text-yellow-300"></i>
+                <h1 class="text-xl md:text-2xl font-bold">DORAMI MULTI VENTURES</h1>
+            </div>
+            <nav class="hidden md:flex space-x-6">
+                <a href="#home" class="hover:text-yellow-300 transition">Home</a>
+                <a href="#products" class="hover:text-yellow-300 transition">Products</a>
+                <a href="#about" class="hover:text-yellow-300 transition">About</a>
+                <a href="#contact" class="hover:text-yellow-300 transition">Contact</a>
+            </nav>
+            <button id="mobile-menu-button" class="md:hidden text-2xl">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden md:hidden bg-indigo-800 px-4 py-2">
+            <a href="#home" class="block py-2 hover:text-yellow-300 transition">Home</a>
+            <a href="#products" class="block py-2 hover:text-yellow-300 transition">Products</a>
+            <a href="#about" class="block py-2 hover:text-yellow-300 transition">About</a>
+            <a href="#contact" class="block py-2 hover:text-yellow-300 transition">Contact</a>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="home" class="bg-gradient-to-r from-indigo-900 to-purple-800 text-white py-16 md:py-24">
+        <div class="container mx-auto px-4 flex flex-col md:flex-row items-center">
+            <div class="md:w-1/2 mb-8 md:mb-0 animate-fadeIn">
+                <h2 class="text-3xl md:text-5xl font-bold mb-4">Your One-Stop Shop For Quality Products</h2>
+                <p class="text-lg mb-6">Discover amazing deals on jewelries, clothing, phones, bikes and more. Quality products at affordable prices.</p>
+                <div class="flex flex-wrap gap-3">
+                    <a href="#products" class="bg-yellow-400 hover:bg-yellow-500 text-indigo-900 font-bold py-3 px-6 rounded-lg transition duration-300">
+                        Shop Now
+                    </a>
+                    <a href="#contact" class="bg-transparent border-2 border-white hover:bg-white hover:text-indigo-900 text-white font-bold py-3 px-6 rounded-lg transition duration-300">
+                        Contact Us
+                    </a>
+                </div>
+            </div>
+            <div class="md:w-1/2 flex justify-center animate-fadeIn">
+                <img src="https://images.unsplash.com/photo-1607082348824-0a96f2a4b9da?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80" 
+                     alt="Shopping" class="rounded-lg shadow-2xl max-w-full h-auto">
+            </div>
+        </div>
+    </section>
+
+    <!-- Categories Section -->
+    <section class="py-12 bg-white">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl font-bold text-center mb-12 text-gray-800">Our Product Categories</h2>
+            <div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-4">
+                <button class="category-btn active py-3 px-4 rounded-lg bg-indigo-100 text-indigo-800 font-medium transition" data-category="all">
+                    All Products
+                </button>
+                <button class="category-btn py-3 px-4 rounded-lg bg-gray-100 text-gray-800 font-medium transition" data-category="jewelry">
+                    Jewelries
+                </button>
+                <button class="category-btn py-3 px-4 rounded-lg bg-gray-100 text-gray-800 font-medium transition" data-category="clothing">
+                    Clothing
+                </button>
+                <button class="category-btn py-3 px-4 rounded-lg bg-gray-100 text-gray-800 font-medium transition" data-category="shoes">
+                    Shoes & Bags
+                </button>
+                <button class="category-btn py-3 px-4 rounded-lg bg-gray-100 text-gray-800 font-medium transition" data-category="phones">
+                    Phones & Accessories
+                </button>
+                <button class="category-btn py-3 px-4 rounded-lg bg-gray-100 text-gray-800 font-medium transition" data-category="bikes">
+                    Bikes
+                </button>
+                <button class="category-btn py-3 px-4 rounded-lg bg-gray-100 text-gray-800 font-medium transition" data-category="lands">
+                    Lands
+                </button>
+                <button class="category-btn py-3 px-4 rounded-lg bg-gray-100 text-gray-800 font-medium transition" data-category="subscription">
+                    Data Subscription
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Products Section -->
+    <section id="products" class="py-12 bg-gray-50">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl font-bold text-center mb-12 text-gray-800">Featured Products</h2>
+            
+            <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
+                <!-- Jewelry Product 1 -->
+                <div class="product-card bg-white rounded-lg overflow-hidden shadow-md transition duration-300" data-category="jewelry">
+                    <div class="relative overflow-hidden h-64">
+                        <img src="https://images.unsplash.com/photo-1611591437281-460914d25d6a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=687&q=80" 
+                             alt="Gold Necklace" class="product-image w-full h-full object-cover">
+                        <div class="absolute top-2 right-2 bg-yellow-400 text-xs font-bold px-2 py-1 rounded-full">
+                            New
+                        </div>
+                    </div>
+                    <div class="p-4">
+                        <h3 class="font-bold text-lg mb-1">Gold Plated Necklace</h3>
+                        <p class="text-gray-600 text-sm mb-2">Elegant gold plated necklace for women</p>
+                        <div class="flex justify-between items-center">
+                            <span class="font-bold text-indigo-800">₦15,000</span>
+                            <button class="order-btn bg-indigo-600 hover:bg-indigo-700 text-white px-3 py-1 rounded text-sm transition">
+                                Order Now
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Jewelry Product 2 -->
+                <div class="product-card bg-white rounded-lg overflow-hidden shadow-md transition duration-300" data-category="jewelry">
+                    <div class="relative overflow-hidden h-64">
+                        <img src="https://images.unsplash.com/photo-1605100804763-247f67b3557e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" 
+                             alt="Diamond Ring" class="product-image w-full h-full object-cover">
+                    </div>
+                    <div class="p-4">
+                        <h3 class="font-bold text-lg mb-1">Diamond Ring</h3>
+                        <p class="text-gray-600 text-sm mb-2">Beautiful diamond ring for special occasions</p>
+                        <div class="flex justify-between items-center">
+                            <span class="font-bold text-indigo-800">₦25,000</span>
+                            <button class="order-btn bg-indigo-600 hover:bg-indigo-700 text-white px-3 py-1 rounded text-sm transition">
+                                Order Now
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Clothing Product 1 -->
+                <div class="product-card bg-white rounded-lg overflow-hidden shadow-md transition duration-300" data-category="clothing">
+                    <div class="relative overflow-hidden h-64">
+                        <img src="https://images.unsplash.com/photo-1489987707025-afc232f7ea0f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" 
+                             alt="African Print Dress" class="product-image w-full h-full object-cover">
+                    </div>
+                    <div class="p-4">
+                        <h3 class="font-bold text-lg mb-1">African Print Dress</h3>
+                        <p class="text-gray-600 text-sm mb-2">Beautiful Ankara dress for women</p>
+                        <div class="flex justify-between items-center">
+                            <span class="font-bold text-indigo-800">₦12,500</span>
+                            <button class="order-btn bg-indigo-600 hover:bg-indigo-700 text-white px-3 py-1 rounded text-sm transition">
+                                Order Now
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Clothing Product 2 -->
+                <div class="product-card bg-white rounded-lg overflow-hidden shadow-md transition duration-300" data-category="clothing">
+                    <div class="relative overflow-hidden h-64">
+                        <img src="https://images.unsplash.com/photo-1529374255404-311a2a4f1fd9?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1469&q=80" 
+                             alt="Men's Suit" class="product-image w-full h-full object-cover">
+                        <div class="absolute top-2 right-2 bg-red-500 text-white text-xs font-bold px-2 py-1 rounded-full">
+                            Sale
+                        </div>
+                    </div>
+                    <div class="p-4">
+                        <h3 class="font-bold text-lg mb-1">Men's Formal Suit</h3>
+                        <p class="text-gray-600 text-sm mb-2">Elegant suit for men - various colors</p>
+                        <div class="flex justify-between items-center">
+                            <span class="font-bold text-indigo-800">₦18,000</span>
+                            <button class="order-btn bg-indigo-600 hover:bg-indigo-700 text-white px-3 py-1 rounded text-sm transition">
+                                Order Now
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Shoes Product -->
+                <div class="product-card bg-white rounded-lg overflow-hidden shadow-md transition duration-300" data-category="shoes">
+                    <div class="relative overflow-hidden h-64">
+                        <img src="https://images.unsplash.com/photo-1600269452121-4f2416e55c28?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=765&q=80" 
+                             alt="Designer Shoes" class="product-image w-full h-full object-cover">
+                    </div>
+                    <div class="p-4">
+                        <h3 class="font-bold text-lg mb-1">Designer Shoes</h3>
+                        <p class="text-gray-600 text-sm mb-2">High quality designer shoes for men</p>
+                        <div class="flex justify-between items-center">
+                            <span class="font-bold text-indigo-800">₦14,000</span>
+                            <button class="order-btn bg-indigo-600 hover:bg-indigo-700 text-white px-3 py-1 rounded text-sm transition">
+                                Order Now
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Bags Product -->
+                <div class="product-card bg-white rounded-lg overflow-hidden shadow-md transition duration-300" data-category="shoes">
+                    <div class="relative overflow-hidden h-64">
+                        <img src="https://images.unsplash.com/photo-1553062407-98eeb64c6a62?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=687&q=80" 
+                             alt="Leather Bag" class="product-image w-full h-full object-cover">
+                    </div>
+                    <div class="p-4">
+                        <h3 class="font-bold text-lg mb-1">Leather Handbag</h3>
+                        <p class="text-gray-600 text-sm mb-2">Genuine leather bag for women</p>
+                        <div class="flex justify-between items-center">
+                            <span class="font-bold text-indigo-800">₦16,500</span>
+                            <button class="order-btn bg-indigo-600 hover:bg-indigo-700 text-white px-3 py-1 rounded text-sm transition">
+                                Order Now
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Phone Product -->
+                <div class="product-card bg-white rounded-lg overflow-hidden shadow-md transition duration-300" data-category="phones">
+                    <div class="relative overflow-hidden h-64">
+                        <img src="https://images.unsplash.com/photo-1592899677977-9c10ca588bbd?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1528&q=80" 
+                             alt="Smartphone" class="product-image w-full h-full object-cover">
+                        <div class="absolute top-2 right-2 bg-green-500 text-white text-xs font-bold px-2 py-1 rounded-full">
+                            Installment
+                        </div>
+                    </div>
+                    <div class="p-4">
+                        <h3 class="font-bold text-lg mb-1">Samsung Galaxy S21</h3>
+                        <p class="text-gray-600 text-sm mb-2">128GB, 8GB RAM - Various colors</p>
+                        <div class="flex justify-between items-center">
+                            <span class="font-bold text-indigo-800">₦280,000</span>
+                            <button class="order-btn bg-indigo-600 hover:bg-indigo-700 text-white px-3 py-1 rounded text-sm transition">
+                                Order Now
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Power Bank Product -->
+                <div class="product-card bg-white rounded-lg overflow-hidden shadow-md transition duration-300" data-category="phones">
+                    <div class="relative overflow-hidden h-64">
+                        <img src="https://images.unsplash.com/photo-1585771724684-38269d6639fd?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" 
+                             alt="Power Bank" class="product-image w-full h-full object-cover">
+                    </div>
+                    <div class="p-4">
+                        <h3 class="font-bold text-lg mb-1">20000mAh Power Bank</h3>
+                        <p class="text-gray-600 text-sm mb-2">Fast charging portable power bank</p>
+                        <div class="flex justify-between items-center">
+                            <span class="font-bold text-indigo-800">₦12,000</span>
+                            <button class="order-btn bg-indigo-600 hover:bg-indigo-700 text-white px-3 py-1 rounded text-sm transition">
+                                Order Now
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Bike Product -->
+                <div class="product-card bg-white rounded-lg overflow-hidden shadow-md transition duration-300" data-category="bikes">
+                    <div class="relative overflow-hidden h-64">
+                        <img src="https://images.unsplash.com/photo-1558981806-ec527fa84c39?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" 
+                             alt="Motorcycle" class="product-image w-full h-full object-cover">
+                        <div class="absolute top-2 right-2 bg-green-500 text-white text-xs font-bold px-2 py-1 rounded-full">
+                            Installment
+                        </div>
+                    </div>
+                    <div class="p-4">
+                        <h3 class="font-bold text-lg mb-1">Honda CG 125</h3>
+                        <p class="text-gray-600 text-sm mb-2">Fuel efficient motorcycle - 2023 model</p>
+                        <div class="flex justify-between items-center">
+                            <span class="font-bold text-indigo-800">₦850,000</span>
+                            <button class="order-btn bg-indigo-600 hover:bg-indigo-700 text-white px-3 py-1 rounded text-sm transition">
+                                Order Now
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Land Product -->
+                <div class="product-card bg-white rounded-lg overflow-hidden shadow-md transition duration-300" data-category="lands">
+                    <div class="relative overflow-hidden h-64">
+                        <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" 
+                             alt="Land Property" class="product-image w-full h-full object-cover">
+                    </div>
+                    <div class="p-4">
+                        <h3 class="font-bold text-lg mb-1">Lekki Phase 1 Plot</h3>
+                        <p class="text-gray-600 text-sm mb-2">500sqm plot in prime location</p>
+                        <div class="flex justify-between items-center">
+                            <span class="font-bold text-indigo-800">₦25,000,000</span>
+                            <button class="order-btn bg-indigo-600 hover:bg-indigo-700 text-white px-3 py-1 rounded text-sm transition">
+                                Order Now
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Data Subscription -->
+                <div class="product-card bg-white rounded-lg overflow-hidden shadow-md transition duration-300" data-category="subscription">
+                    <div class="relative overflow-hidden h-64">
+                        <img src="https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" 
+                             alt="Mobile Data" class="product-image w-full h-full object-cover">
+                    </div>
+                    <div class="p-4">
+                        <h3 class="font-bold text-lg mb-1">MTN 10GB Data Plan</h3>
+                        <p class="text-gray-600 text-sm mb-2">30-day validity - All networks</p>
+                        <div class="flex justify-between items-center">
+                            <span class="font-bold text-indigo-800">₦3,500</span>
+                            <button class="order-btn bg-indigo-600 hover:bg-indigo-700 text-white px-3 py-1 rounded text-sm transition">
+                                Order Now
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="text-center mt-10">
+                <button class="bg-indigo-600 hover:bg-indigo-700 text-white font-bold py-3 px-8 rounded-lg transition">
+                    View All Products
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-16 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="flex flex-col md:flex-row items-center">
+                <div class="md:w-1/2 mb-8 md:mb-0 md:pr-8">
+                    <img src="https://images.unsplash.com/photo-1556740738-b6a63e27c4df?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" 
+                         alt="About Us" class="rounded-lg shadow-xl w-full">
+                </div>
+                <div class="md:w-1/2">
+                    <h2 class="text-3xl font-bold mb-6 text-gray-800">About DORAMI MULTI VENTURES</h2>
+                    <p class="text-gray-600 mb-4">
+                        DORAMI MULTI VENTURES is a trusted name in the retail industry, offering a wide range of quality products 
+                        to meet all your needs. From fashion accessories to electronics and real estate, we've got you covered.
+                    </p>
+                    <p class="text-gray-600 mb-4">
+                        Our mission is to provide our customers with top-notch products at competitive prices, with flexible payment 
+                        options including installment plans for selected items.
+                    </p>
+                    <p class="text-gray-600 mb-6">
+                        With years of experience in the market, we've built a reputation for reliability, quality, and excellent 
+                        customer service.
+                    </p>
+                    <div class="flex flex-wrap gap-3">
+                        <div class="flex items-center bg-indigo-50 px-4 py-2 rounded-lg">
+                            <i class="fas fa-check-circle text-indigo-600 mr-2"></i>
+                            <span>Quality Products</span>
+                        </div>
+                        <div class="flex items-center bg-indigo-50 px-4 py-2 rounded-lg">
+                            <i class="fas fa-check-circle text-indigo-600 mr-2"></i>
+                            <span>Affordable Prices</span>
+                        </div>
+                        <div class="flex items-center bg-indigo-50 px-4 py-2 rounded-lg">
+                            <i class="fas fa-check-circle text-indigo-600 mr-2"></i>
+                            <span>Secure Payments</span>
+                        </div>
+                        <div class="flex items-center bg-indigo-50 px-4 py-2 rounded-lg">
+                            <i class="fas fa-check-circle text-indigo-600 mr-2"></i>
+                            <span>Fast Delivery</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="py-16 bg-gray-100">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl font-bold text-center mb-12 text-gray-800">What Our Customers Say</h2>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="bg-white p-6 rounded-lg shadow-md">
+                    <div class="flex items-center mb-4">
+                        <img src="https://randomuser.me/api/portraits/women/32.jpg" alt="Customer" class="w-12 h-12 rounded-full mr-4">
+                        <div>
+                            <h4 class="font-bold">Amina Yusuf</h4>
+                            <div class="flex text-yellow-400">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="text-gray-600">
+                        "I bought a beautiful necklace from DORAMI and it exceeded my expectations. The quality is amazing and it arrived sooner than expected. Will definitely shop here again!"
+                    </p>
+                </div>
+                
+                <div class="bg-white p-6 rounded-lg shadow-md">
+                    <div class="flex items-center mb-4">
+                        <img src="https://randomuser.me/api/portraits/men/45.jpg" alt="Customer" class="w-12 h-12 rounded-full mr-4">
+                        <div>
+                            <h4 class="font-bold">Emeka Okoro</h4>
+                            <div class="flex text-yellow-400">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star-half-alt"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="text-gray-600">
+                        "Got my power bike on installment payment. The process was smooth and transparent. The bike is in perfect condition. DORAMI made my dream of owning a bike come true!"
+                    </p>
+                </div>
+                
+                <div class="bg-white p-6 rounded-lg shadow-md">
+                    <div class="flex items-center mb-4">
+                        <img src="https://randomuser.me/api/portraits/women/68.jpg" alt="Customer" class="w-12 h-12 rounded-full mr-4">
+                        <div>
+                            <h4 class="font-bold">Chioma Eze</h4>
+                            <div class="flex text-yellow-400">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="text-gray-600">
+                        "The Ankara dress I ordered fits perfectly and the material is high quality. Customer service was helpful when I had questions about sizing. Highly recommend DORAMI!"
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-16 bg-indigo-900 text-white">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl font-bold text-center mb-12">Contact Us</h2>
+            
+            <div class="flex flex-col md:flex-row gap-8">
+                <div class="md:w-1/2">
+                    <h3 class="text-xl font-bold mb-4">Get In Touch</h3>
+                    <p class="mb-6">
+                        Have questions about our products or services? Reach out to us via any of the channels below and 
+                        we'll get back to you as soon as possible.
+                    </p>
+                    
+                    <div class="space-y-4">
+                        <div class="flex items-start">
+                            <i class="fas fa-envelope text-yellow-300 mt-1 mr-4"></i>
+                            <div>
+                                <h4 class="font-bold">Email</h4>
+                                <p class="text-indigo-200">
+                                    <a href="mailto:ajosedorami@gmail.com" class="hover:text-yellow-300 transition">ajosedorami@gmail.com</a><br>
+                                    <a href="mailto:doramiajose@gmail.com" class="hover:text-yellow-300 transition">doramiajose@gmail.com</a><br>
+                                    <a href="mailto:oladokunoluwatomisin05@gmail.com" class="hover:text-yellow-300 transition">oladokunoluwatomisin05@gmail.com</a>
+                                </p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-start">
+                            <i class="fas fa-phone-alt text-yellow-300 mt-1 mr-4"></i>
+                            <div>
+                                <h4 class="font-bold">Phone</h4>
+                                <p class="text-indigo-200">
+                                    <a href="tel:08149344273" class="hover:text-yellow-300 transition">08149344273</a><br>
+                                    <a href="tel:07034469100" class="hover:text-yellow-300 transition">07034469100</a><br>
+                                    <a href="tel:07084598659" class="hover:text-yellow-300 transition">07084598659</a>
+                                </p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-start">
+                            <i class="fas fa-clock text-yellow-300 mt-1 mr-4"></i>
+                            <div>
+                                <h4 class="font-bold">Business Hours</h4>
+                                <p class="text-indigo-200">
+                                    Monday - Friday: 9:00 AM - 6:00 PM<br>
+                                    Saturday: 10:00 AM - 4:00 PM<br>
+                                    Sunday: Closed
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="mt-8 flex flex-wrap gap-3">
+                        <a href="https://wa.me/2348149344273" class="whatsapp-btn flex items-center bg-white text-gray-800 px-4 py-2 rounded-lg font-medium transition">
+                            <i class="fab fa-whatsapp text-green-500 mr-2"></i> WhatsApp
+                        </a>
+                        <a href="tel:08149344273" class="call-btn flex items-center bg-white text-gray-800 px-4 py-2 rounded-lg font-medium transition">
+                            <i class="fas fa-phone-alt text-indigo-600 mr-2"></i> Call Now
+                        </a>
+                        <a href="mailto:ajosedorami@gmail.com" class="email-btn flex items-center bg-white text-gray-800 px-4 py-2 rounded-lg font-medium transition">
+                            <i class="fas fa-envelope text-purple-600 mr-2"></i> Email Us
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="md:w-1/2">
+                    <h3 class="text-xl font-bold mb-4">Send Us a Message</h3>
+                    <form class="space-y-4">
+                        <div>
+                            <label for="name" class="block mb-1">Your Name</label>
+                            <input type="text" id="name" class="w-full px-4 py-2 rounded-lg bg-indigo-800 border border-indigo-700 focus:outline-none focus:ring-2 focus:ring-yellow-300">
+                        </div>
+                        
+                        <div>
+                            <label for="email" class="block mb-1">Email Address</label>
+                            <input type="email" id="email" class="w-full px-4 py-2 rounded-lg bg-indigo-800 border border-indigo-700 focus:outline-none focus:ring-2 focus:ring-yellow-300">
+                        </div>
+                        
+                        <div>
+                            <label for="phone" class="block mb-1">Phone Number</label>
+                            <input type="tel" id="phone" class="w-full px-4 py-2 rounded-lg bg-indigo-800 border border-indigo-700 focus:outline-none focus:ring-2 focus:ring-yellow-300">
+                        </div>
+                        
+                        <div>
+                            <label for="subject" class="block mb-1">Subject</label>
+                            <input type="text" id="subject" class="w-full px-4 py-2 rounded-lg bg-indigo-800 border border-indigo-700 focus:outline-none focus:ring-2 focus:ring-yellow-300">
+                        </div>
+                        
+                        <div>
+                            <label for="message" class="block mb-1">Message</label>
+                            <textarea id="message" rows="4" class="w-full px-4 py-2 rounded-lg bg-indigo-800 border border-indigo-700 focus:outline-none focus:ring-2 focus:ring-yellow-300"></textarea>
+                        </div>
+                        
+                        <button type="submit" class="bg-yellow-400 hover:bg-yellow-500 text-indigo-900 font-bold py-3 px-6 rounded-lg transition">
+                            Send Message
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white py-8">
+        <div class="container mx-auto px-4">
+            <div class="flex flex-col md:flex-row justify-between">
+                <div class="mb-6 md:mb-0">
+                    <div class="flex items-center mb-4">
+                        <i class="fas fa-store text-2xl text-yellow-300 mr-2"></i>
+                        <h3 class="text-xl font-bold">DORAMI MULTI VENTURES</h3>
+                    </div>
+                    <p class="text-gray-400 max-w-md">
+                        Your one-stop shop for quality products including jewelries, clothing, electronics, bikes, and more. 
+                        We offer both cash and installment payment options.
+                    </p>
+                </div>
+                
+                <div class="mb-6 md:mb-0">
+                    <h4 class="text-lg font-bold mb-4">Quick Links</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#home" class="text-gray-400 hover:text-yellow-300 transition">Home</a></li>
+                        <li><a href="#products" class="text-gray-400 hover:text-yellow-300 transition">Products</a></li>
+                        <li><a href="#about" class="text-gray-400 hover:text-yellow-300 transition">About Us</a></li>
+                        <li><a href="#contact" class="text-gray-400 hover:text-yellow-300 transition">Contact</a></li>
+                    </ul>
+                </div>
+                
+                <div class="mb-6 md:mb-0">
+                    <h4 class="text-lg font-bold mb-4">Product Categories</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="text-gray-400 hover:text-yellow-300 transition">Jewelries</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-yellow-300 transition">Clothing</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-yellow-300 transition">Shoes & Bags</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-yellow-300 transition">Phones & Accessories</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-yellow-300 transition">Bikes</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-yellow-300 transition">Lands</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="text-lg font-bold mb-4">Connect With Us</h4>
+                    <div class="flex space-x-4 mb-4">
+                        <a href="#" class="text-gray-400 hover:text-yellow-300 transition text-xl"><i class="fab fa-facebook"></i></a>
+                        <a href="#" class="text-gray-400 hover:text-yellow-300 transition text-xl"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="text-gray-400 hover:text-yellow-300 transition text-xl"><i class="fab fa-instagram"></i></a>
+                        <a href="https://wa.me/2348149344273" class="text-gray-400 hover:text-yellow-300 transition text-xl"><i class="fab fa-whatsapp"></i></a>
+                    </div>
+                    <p class="text-gray-400">
+                        Subscribe to our newsletter for updates and offers
+                    </p>
+                    <div class="flex mt-2">
+                        <input type="email" placeholder="Your email" class="px-4 py-2 rounded-l-lg bg-gray-800 text-white focus:outline-none">
+                        <button class="bg-yellow-400 hover:bg-yellow-500 text-indigo-900 px-4 py-2 rounded-r-lg font-medium transition">
+                            Subscribe
+                        </button>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="border-t border-gray-800 mt-8 pt-6 text-center text-gray-400">
+                <p>&copy; 2023 DORAMI MULTI VENTURES. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Order Modal -->
+    <div id="order-modal" class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 hidden">
+        <div class="bg-white rounded-lg max-w-md w-full mx-4 p-6 relative">
+            <button id="close-modal" class="absolute top-4 right-4 text-gray-500 hover:text-gray-700">
+                <i class="fas fa-times"></i>
+            </button>
+            <h3 class="text-xl font-bold mb-4">Order Product</h3>
+            <form id="order-form" class="space-y-4">
+                <div>
+                    <label for="product-name" class="block mb-1">Product Name</label>
+                    <input type="text" id="product-name" class="w-full px-4 py-2 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-indigo-500" readonly>
+                </div>
+                <div>
+                    <label for="product-price" class="block mb-1">Price</label>
+                    <input type="text" id="product-price" class="w-full px-4 py-2 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-indigo-500" readonly>
+                </div>
+                <div>
+                    <label for="customer-name" class="block mb-1">Your Full Name</label>
+                    <input type="text" id="customer-name" class="w-full px-4 py-2 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-indigo-500" required>
+                </div>
+                <div>
+                    <label for="customer-phone" class="block mb-1">Phone Number</label>
+                    <input type="tel" id="customer-phone" class="w-full px-4 py-2 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-indigo-500" required>
+                </div>
+                <div>
+                    <label for="customer-address" class="block mb-1">Delivery Address</label>
+                    <textarea id="customer-address" rows="3" class="w-full px-4 py-2 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-indigo-500" required></textarea>
+                </div>
+                <div>
+                    <label for="payment-method" class="block mb-1">Payment Method</label>
+                    <select id="payment-method" class="w-full px-4 py-2 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-indigo-500">
+                        <option value="cash">Cash Payment</option>
+                        <option value="installment">Installment Payment</option>
+                        <option value="transfer">Bank Transfer</option>
+                    </select>
+                </div>
+                <button type="submit" class="w-full bg-indigo-600 hover:bg-indigo-700 text-white font-bold py-3 px-6 rounded-lg transition">
+                    Place Order
+                </button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Success Modal -->
+    <div id="success-modal" class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 hidden">
+        <div class="bg-white rounded-lg max-w-md w
+</body>
+</html>
